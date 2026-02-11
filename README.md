@@ -16,6 +16,11 @@ The repository is organized into assignment folders, each containing Python scri
 - **Task2.py**: Calculates the sum of numbers from 1 to 49 using a `for` loop.
 - **Task_Report.md**: A report or documentation related to the tasks in Assignment 2.
 
+### Assignment 3: Functions and Modules
+- **Task1.py**: Calculates the factorial of a number using a function.
+- **Task2.py**: Performs mathematical operations (Square Root, Logarithm, Sine) using the `math` module.
+- **report.md**: A detailed report and documentation for Assignment 3 tasks.
+
 ## How to Run
 
 Ensure you have Python 3.x installed. Navigate to the project root directory and run the desired script:
