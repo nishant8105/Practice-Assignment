@@ -12,9 +12,9 @@ The repository is organized into assignment folders, each containing Python scri
 - **tasks.md**: Detailed task descriptions for Assignment 1.
 
 ### Assignment 2: Control Flow and Logic
-- **Task1.py**: Logic to determine if a number is even or odd using bitwise operators (`&`) and conditional statements.
-- **Task2.py**: Calculates the sum of numbers from 1 to 49 using a `for` loop.
-- **Task_Report.md**: A report or documentation related to the tasks in Assignment 2.
+- **Task1.py**: Logic to determine if a number is even or odd using the modulo operator (`%`) and conditional statements.
+- **Task2.py**: Calculates the sum of numbers from 1 to 50 using a `for` loop.
+- **report.md**: A report or documentation related to the tasks in Assignment 2.
 
 ### Assignment 3: Functions and Modules
 - **Task1.py**: Calculates the factorial of a number using a recursive function.
