@@ -1,8 +1,7 @@
 def factorial(num):
-    fact = 1
-    for i in range (1, num+1):
-        fact *= i
-    return fact
+    if num == 1 :
+        return 1
+    return num * factorial(num - 1) 
 
 num = int(input("Enter a number: "))
-print(f"Factorial of {num} is : {factorial(5)}")
+print(f"Factorial of {num} is : {factorial(num)}")
