@@ -17,7 +17,7 @@ The repository is organized into assignment folders, each containing Python scri
 - **Task_Report.md**: A report or documentation related to the tasks in Assignment 2.
 
 ### Assignment 3: Functions and Modules
-- **Task1.py**: Calculates the factorial of a number using a function.
+- **Task1.py**: Calculates the factorial of a number using a recursive function.
 - **Task2.py**: Performs mathematical operations (Square Root, Logarithm, Sine) using the `math` module.
 - **report.md**: A detailed report and documentation for Assignment 3 tasks.
 
