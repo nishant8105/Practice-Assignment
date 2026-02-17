@@ -1,0 +1,6 @@
+Hello, Python!
+This is a new line.
+We are learning file handling.
+First item
+Second item
+Third item 
