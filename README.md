@@ -21,6 +21,11 @@ The repository is organized into assignment folders, each containing Python scri
 - **Task2.py**: Performs mathematical operations (Square Root, Logarithm, Sine) using the `math` module.
 - **report.md**: A detailed report and documentation for Assignment 3 tasks.
 
+### Assignment 4: File Handling
+- **Task1.py**: Checks for `sample.txt` existence and reads its content line by line.
+- **Task2.py**: Writes user input to `output.txt`, appends more text, then reads and prints the file content.
+- **report.md**: Documentation for Assignment 4 tasks.
+
 ## How to Run
 
 Ensure you have Python 3.x installed. Navigate to the project root directory and run the desired script:
