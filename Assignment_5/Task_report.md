@@ -26,6 +26,9 @@ else :
 ```
 Enter student's name: Alice
 Alice's marks: 85
+
+Enter student's name: Rushikesh
+Student not found
 ```
 
 ## Task 2: List Slicing
