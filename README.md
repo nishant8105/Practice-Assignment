@@ -26,6 +26,11 @@ The repository is organized into assignment folders, each containing Python scri
 - **Task2.py**: Writes user input to `output.txt`, appends more text, then reads and prints the file content.
 - **report.md**: Documentation for Assignment 4 tasks.
 
+### Assignment 5: Data Structures
+- **Task1.py**: Accesses a dictionary of student marks and retrieves marks based on user input.
+- **Task2.py**: Demonstrates list slicing by extracting the first five elements of a list and reversing them.
+- **Task_report.md**: A detailed report and documentation for Assignment 5 tasks.
+
 ## How to Run
 
 Ensure you have Python 3.x installed. Navigate to the project root directory and run the desired script:
