@@ -1,25 +1,17 @@
-# Assignment 4 Report
+# Assignment 4 Journey
 
-This report documents the Python scripts created for Assignment 4, focusing on file handling operations.
+Hey there! This is my report for Assignment 4, where I learned a ton about handling files in Python. It was a really good experience figuring out how to read and write text files from scratch.
 
-## Task 1: File Read & Traversal (`Task1.py`)
+## What I Learned in Task 1
 
-### Description
-This script demonstrates how to check for a file's existence and read its content line by line.
+For the first file, I needed to read some text from `sample.txt`. Originally, I tried to check if the file existed using the `os` module before opening it - but I learned that the proper, Pythonic way to do this is by trying to open the file and handling the exception if it fails.
 
-### Explanation
-1.  **File Existence Check**: uses `os.path.exists('sample.txt')` to verify if the file exists before attempting to open it.
-2.  **Reading File**: Opens `sample.txt` in read text mode (`'rt'`).
-3.  **Traversal**: Iterates through the first 6 lines of the file using a loop and `readline()`.
-4.  **Output**: Prints each line with its corresponding line number.
-5.  **Error Handling**: If the file does not exist, it prints an error message.
+I set up a `try-except` block to catch a `FileNotFoundError`. This way, if the file isn't there, the program gracefully prints an error message instead of crashing. I also used the simple `'r'` mode and read the file line-by-line using a loop and `readline()`. This is great because it means I don't have to load a massive file all into memory at once.
 
-## Task 2: File Write & Append Operations (`Task2.py`)
+## What I Learned in Task 2
 
-### Description
-This script demonstrates how to write data to a file, append data to it, and read the entire content back.
+In the second task, I learned how to create and modify files. First, I opened `output.txt` using `'w'` mode to take text from the user and write it out. Doing this creates the file if it doesn't exist, and completely overwrites it if it does!
 
-### Explanation
-1.  **Writing to File**: Opens `output.txt` in write mode (`'w'`), which creates the file or overwrites it if it exists. Taking user input and writing it to the file.
-2.  **Appending to File**: Opens `output.txt` in append mode (`'at'`) to add new content without erasing existing data. Taking user input and appending it.
-3.  **Reading File**: Opens `output.txt` in read mode (`'r'`) and prints the entire content to verify the operations.
+Then, to add more without deleting everything I just wrote, I used the append mode (`'a'`). I took some more input and tacked it onto the end. Afterwards, I just opened the file again in read mode (`'r'`) to print everything out and make sure my additions worked correctly.
+
+Overall, learning how to properly use try-except blocks instead of just making `os.path.exists()` checks was the most valuable part. It makes the code feel much more natural and solid.
