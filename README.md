@@ -31,6 +31,9 @@ The repository is organized into assignment folders, each containing Python scri
 - **Task2.py**: Demonstrates list slicing by extracting the first five elements of a list and reversing them.
 - **Task_report.md**: A detailed report and documentation for Assignment 5 tasks.
 
+### Assignment 6: GUI Programming
+- **calculator.py**: A graphical user interface (GUI) calculator built using the `tkinter` library, supporting basic arithmetic operations (addition, subtraction, multiplication, and division).
+
 ## How to Run
 
 Ensure you have Python 3.x installed. Navigate to the project root directory and run the desired script:
