@@ -34,6 +34,9 @@ The repository is organized into assignment folders, each containing Python scri
 ### Assignment 6: GUI Programming
 - **calculator.py**: A graphical user interface (GUI) calculator built using the `tkinter` library, supporting basic arithmetic operations (addition, subtraction, multiplication, and division).
 
+### Assignment 7: Database Interaction with PostgreSQL
+- **main.py**: Demonstrates connecting to a PostgreSQL database using the `psycopg2` library. It includes functions to create an `employees` table, insert data (both static and via user input), and retrieve data from the database.
+
 ## How to Run
 
 Ensure you have Python 3.x installed. Navigate to the project root directory and run the desired script:
