@@ -10,7 +10,7 @@ web = Flask(__name__)
 
 # Inputs
 def home():
-    return "Welcome"
+    return render_template("index.html")
 
 
 @web.route("/register")
