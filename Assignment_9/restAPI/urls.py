@@ -16,12 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from userProfile.views import HelloWorldView, PostListCreateView, PostRetrieveUpdateDestroyView
-
+from userProfile.views import HelloWorldView, PostView
+from rest_framework import routers
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', HelloWorldView.as_view()),
     path('api-auth/', include('rest_framework.urls')),
-    path('post/', PostListCreateView.as_view()),
-    path('post/<int:pk>/', PostRetrieveUpdateDestroyView.as_view()),
 ]
+router = routers.SimpleRouter()
+router.register('post', PostView, basename="post")
+
+urlpatterns += router.urls
