@@ -1,107 +1,179 @@
 # Django REST API - Assignment 9
 
-This project is a simple **Django REST API** where users can create, read, update, and delete posts.
+This project is a **User Profile Management API** built with Django and Django REST Framework (DRF).
+It allows authenticated users to create, view, update, and delete their own profile.
 
 ---
 
 ## 📌 What this project does
 
-- Create a post ✍️  
-- View all posts 📄  
-- Update your own post ✏️  
-- Delete your own post ❌  
-- Only logged-in users can create posts 🔐  
-- Search, filter, and sort posts 🔍  
+* Create a user profile 👤
+* View profile details 📄
+* Update profile information ✏️
+* Delete profile ❌
+* Only authenticated users can access the API 🔐
+* Search, filter, and order profiles 🔍
 
 ---
 
 ## 🚀 Features
 
-- Built using Django REST Framework (DRF)  
-- Only the post owner can edit or delete  
-- Search posts by title or content  
-- Filter posts by username or date  
-- Sort posts by title or creation date  
+* Built using Django REST Framework
+* Uses **Generic API Views** (`ListCreateAPIView`, `RetrieveUpdateDestroyAPIView`)
+* One-to-one relationship between user and profile
+* Only the profile owner can update or delete
+* Search by username, bio, or location
+* Filter profiles by location or username
+* Order results by ID
 
 ---
 
-## ⚙️ Setup Overview
+## ⚙️ Setup Instructions
 
-- Install required packages (Django, djangorestframework, django-filter) using 'pip install -r requirements.txt' command 
-- Activate virtual environment (if not already activated)
-- Apply database migrations using 'python manage.py migrate' command
-- Create admin user (optional) using 'python manage.py createsuperuser' command
-- Run the development server using 'python manage.py runserver' command
+### 1. Clone the repository
+
+```bash
+git clone <https://github.com/nishant8105/Practice-Assignment.git>
+cd <Practice-Assignment/Assignment_9>
+```
 
 ---
-open in broswer with http://localhost:8000/hello/
+
+### 2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Required packages include:
+
+* Django
+* djangorestframework
+* django-filter
+* Pillow
+
+
+---
+
+### 3. Apply migrations
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+---
+
+### 4. Create a superuser (optional)
+
+```bash
+python manage.py createsuperuser
+```
+
+---
+
+### 5. Run the server
+
+```bash
+python manage.py runserver
+```
+
+---
+
+## 🌐 API Base URL
+
+```id="m0w8tv"
+http://localhost:8000/api/
+```
+
+---
+
 ## 📡 API Endpoints
 
-### 1. Hello API  
-Returns a simple message.
+### 🔹 List or Create Profiles
 
-**Endpoint:**  
-`/hello/`
-
----
-
-### 2. Get All Posts  
-
-**Endpoint:**  
-`/post/` (replace hello with post in the above URL)
+* **GET** `/api/users/` → List profiles
+* **POST** `/api/users/` → Create profile
 
 ---
 
-### 🔍 Filter / Search / Order
+### 🔹 Retrieve / Update / Delete Profile
 
-You can refine results using:
-
-- Filter by username  
-- Filter by date  
-- Search by title or content  
-- Order by title or date  
+* **GET** `/api/users/<id>/`
+* **PUT/PATCH** `/api/users/<id>/`
+* **DELETE** `/api/users/<id>/`
 
 ---
 
-### 3. Create Post  
+## 🔍 Filtering, Searching, Ordering
 
-- Requires login  
-- Automatically saves the logged-in user as creator  
+### Filter by location:
 
-**Endpoint:**  
-`/post/`
+```id="a9r8p2"
+GET /api/users/?location=pune
+```
 
----
+### Filter by username:
 
-### 4. Get Single Post  
+```id="4m1szt"
+GET /api/users/?username=rahul
+```
 
-**Endpoint:**  
-`/post/<id>/` (replace post/ with post/<id>/ in the above URL)
+### Search:
 
----
+```id="o1zt7w"
+GET /api/users/?search=developer
+```
 
-### 5. Update Post  
+### Ordering:
 
-- Requires login  
-- Only the creator can update  
-
-**Endpoint:**  
-`/post/<id>/`
-
----
-
-### 6. Delete Post  
-
-- Requires login  
-- Only the creator can delete  
-
-**Endpoint:**  
-`/post/<id>/`
+```id="6i7o1r"
+GET /api/users/?ordering=id
+```
 
 ---
 
-## 🧪 Testing
+## 🔐 Authentication
 
-- The project includes tests for all features  
-- Tests check CRUD operations and permissions  
-- Run tests using 'python manage.py test' command
+* Uses Django session authentication
+* Login at:
+
+```id="f3j1bz"
+/api-auth/login/
+```
+
+---
+
+## 🧪 Running Tests
+
+Run all tests:
+
+```bash
+python manage.py test
+```
+
+Run specific app tests:
+
+```bash
+python manage.py test userProfile
+```
+
+---
+
+
+## 📁 Project Structure (Simplified)
+
+```
+restAPI/
+│   settings.py
+│   urls.py
+│
+userProfile/
+│   models.py
+│   views.py
+│   serializers.py
+│   permissions.py
+│   filters.py
+│   urls.py
+│   tests.py
+```

@@ -1,7 +1,4 @@
 from django.contrib import admin
-from userProfile.models import Post
-# Register your models here.
+from userProfile.models import UserProfile
 
-admin.site.register(Post)
-# username = admin 
-# password = 12345
+admin.site.register(UserProfile)

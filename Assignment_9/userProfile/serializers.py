@@ -1,13 +1,16 @@
 from rest_framework import serializers
-from userProfile.models import Post
+from userProfile.models import UserProfile
 
-class PostSerializers(serializers.ModelSerializer):
-    created_by = serializers.CharField(source='created_by.username', read_only=True)
+class UserProfileSerializer(serializers.ModelSerializer):
+    user = serializers.CharField(source='user.username', read_only=True)
+
     class Meta:
-        model = Post
+        model = UserProfile
         fields = '__all__'
-        read_only_fields = ('created_by',)
+        read_only_fields = ('user',)
 
     def create(self, validated_data):
-        validated_data['created_by'] = self.context['request'].user
-        return Post.objects.create(**validated_data)
+        request = self.context.get('request')
+        if request and request.user:
+            validated_data['user'] = request.user
+        return super().create(validated_data)

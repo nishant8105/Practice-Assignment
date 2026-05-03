@@ -1,29 +1,26 @@
-from django.shortcuts import render
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from userProfile.serializers import PostSerializers
-from rest_framework.viewsets import ModelViewSet
-from userProfile.models import Post
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.permissions import IsAuthenticated
-from userProfile.permission import IsPostPossessor
-from rest_framework import filters
-from userProfile.filters import PostFilter
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
+from userProfile.filters import UserProfileFilter
+from userProfile.models import UserProfile
+from userProfile.serializers import UserProfileSerializer
+from userProfile.permission import IsProfileOwner
 
 
-# Create your views here.
-class HelloWorldView(APIView):
-    def get(self, request):
-        return Response({
-            'message' : 'Hello World!'
-        })
-class PostView(ModelViewSet):
-    permission_classes = [IsAuthenticated, IsPostPossessor]
-    serializer_class = PostSerializers
+class UserProfileListCreateView(ListCreateAPIView):
+    serializer_class = UserProfileSerializer
+    permission_classes = [IsAuthenticated]
+    queryset = UserProfile.objects.all()
+
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_class = PostFilter
-    ordering_fields = ['id', ]
-    search_fields = ['title', 'content']
+    filter_class = UserProfileFilter
+    filterset_fields = ['location']
+    search_fields = ['user__username', 'bio', 'location']
+    ordering_fields = ['id']
 
-    def get_queryset(self):
-        return Post.objects.filter(created_by = self.request.user)
+
+class UserProfileDetailView(RetrieveUpdateDestroyAPIView):
+    serializer_class = UserProfileSerializer
+    permission_classes = [IsAuthenticated, IsProfileOwner]
+    queryset = UserProfile.objects.all()
