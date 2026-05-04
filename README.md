@@ -37,6 +37,24 @@ The repository is organized into assignment folders, each containing Python scri
 ### Assignment 7: Database Interaction with PostgreSQL
 - **main.py**: Demonstrates connecting to a PostgreSQL database using the `psycopg2` library. It includes functions to create an `employees` table, insert data (both static and via user input), and retrieve data from the database.
 
+### Assignment 8: Web Development with Flask
+- **new.py**: Main Flask application script.
+- **static/**: Directory for static files (CSS, JS, images).
+- **templates/**: Directory containing HTML templates.
+  - **base.html**: Base template.
+  - **confirmation.html**: Confirmation page template.
+  - **home.html**: Home page template.
+  - **index.html**: Index page template.
+  - **register.html**: Registration page template.
+
+### Assignment 9: Django REST API
+- **db.sqlite3**: SQLite database file.
+- **manage.py**: Django management script.
+- **requirements.txt**: Python dependencies.
+- **restAPI/**: Main Django app with configuration files (settings.py, urls.py, etc.).
+- **userProfile/**: User profile app with models, serializers, views, and migrations.
+
+
 ## How to Run
 
 Ensure you have Python 3.x installed. Navigate to the project root directory and run the desired script:
