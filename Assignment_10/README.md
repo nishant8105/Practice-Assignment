@@ -1,167 +1,199 @@
-# Amazon Price Tracer
+# Amazon Price Tracker 🛒📉
 
-## Description
+This project is a simple Amazon price tracker built using Python, `requests`, and `BeautifulSoup`.
 
-Amazon Price Tracer is a Python-based web scraping application that extracts product titles and prices from Amazon product pages and compares the current price with a user-defined target price.
+I built this project to learn how web scraping works in real-world scenarios. The main idea was to automatically fetch product details from Amazon pages, extract the current product price, and compare it with a target price that I define myself.
 
-The application uses:
+Instead of hardcoding everything in one function, I gradually improved the project step by step:
 
-- `requests` for sending HTTP requests
-- `BeautifulSoup` for HTML parsing and scraping
+- first by scraping a single product
+- then by cleaning the extracted price
+- then by handling missing price formats
+- then by adding error handling
+- and finally by creating a reusable `PriceTracer` class
 
----
-
-## Features
-
-- Extract Amazon product titles
-- Extract product prices
-- Convert scraped prices into numeric values
-- Compare current price with target price
-- Handle missing titles or prices gracefully
-- Test multiple product URLs in a single run
+The final version can track multiple products and tell me whether the current price is above or below my target price.
 
 ---
 
-## Requirements
+# What This Project Does ⚙️
 
-- Python 3.x
-- requests
-- beautifulsoup4
+The script:
+
+- sends an HTTP request to an Amazon product page
+- extracts:
+  - product title
+  - current product price
+- cleans the price into a usable number
+- compares it against a target price
+- prints whether the price is:
+  - above target
+  - below target
+  - equal to target
+
+I also added fallback selectors because Amazon pages don't always use the same HTML structure for prices.
 
 ---
 
-## Installation
+# Features 🚀
 
-Clone the repository or download the project files.
+## Basic Product Scraping
 
-Install required packages:
+Fetches:
+
+- Product title
+- Product price
+
+using:
+
+```python
+requests
+BeautifulSoup
+```
+
+---
+
+## Price Cleaning
+
+Converts prices like:
+
+```text
+₹1,24,999
+```
+
+into:
+
+```python
+124999.0
+```
+
+so numerical comparison becomes possible.
+
+---
+
+## Multiple Price Selectors
+
+Amazon changes its page structure frequently, so I added fallback selectors like:
+
+```python
+a-price-whole
+a-offscreen
+priceblock_ourprice
+priceblock_dealprice
+```
+
+This makes the scraper more reliable.
+
+---
+
+## Error Handling 🛡️
+
+The project handles:
+
+- network failures
+- request timeouts
+- HTTP errors
+- invalid parsing cases
+
+instead of crashing immediately.
+
+---
+
+## Object-Oriented Version
+
+I created a `PriceTracer` class to organize the logic better.
+
+The class handles:
+
+- fetching pages
+- extracting titles
+- extracting prices
+- cleaning prices
+- comparing prices
+
+This made the code much cleaner and easier to extend later.
+
+---
+
+# Technologies Used 🧰
+
+- Python
+- Requests
+- BeautifulSoup4
+
+---
+
+# Project Structure 📂
+
+```text
+price_tracker.py
+```
+
+Everything is currently inside one file.
+
+The flow is roughly:
+
+```text
+Fetch Page
+   ↓
+Parse HTML
+   ↓
+Extract Title + Price
+   ↓
+Clean Price
+   ↓
+Compare With Target
+   ↓
+Print Result
+```
+
+---
+
+# How I Run This Project ▶️
+
+## 1. Install Dependencies
+
+These are the packages I installed:
 
 ```bash
 pip install requests beautifulsoup4
 ```
-
 ---
 
-## Project Structure
+## 2. Run the Script
+
+This is the actual command I use:
 
 ```bash
-amazon-price-tracer/
-│
-├── pricetracker.py
-├── example.py
-├── README.md
-├── requirements.txt
-└── screenshots/
-    ├── code.png
-    └── output.png
+python price_tracker.py
 ```
-
----
-
-## How It Works
-
-The application:
-
-1. Sends an HTTP request to the Amazon product page
-2. Extracts:
-   - Product title
-   - Product price
-3. Cleans the price string by removing:
-   - Currency symbols
-   - Commas
-4. Converts the price into a float value
-5. Compares the current price with the target price
-
----
-
-## Example Product List
-
-```python
-products = [
-
-    {
-        "url": "https://www.amazon.in/OPPO-K13-Turbo-5G-Phantom/dp/B0FNLRR81F",
-        "target_price": 25000
-    },
-
-    {
-        "url": "https://www.amazon.in/Lenovo-i7-13650HX-39-6cm-300Nits-83DV01A5IN/dp/B0G3B47HZF/",
-        "target_price": 110000
-    }
-
-]
-```
-
----
-
-## Run the Application
-
 ```bash
-python example.py
+python3 price_tracker.py
 ```
+---
+
+# Products I Tested
+
+I tested the tracker using:
+
+- OPPO K13 Turbo 5G
+- Lenovo Gaming Laptop
+
+with different target prices.
 
 ---
 
-## Example Output
+# What I Learned 📚
 
-```bash
+While building this project, I learned:
 
-==================================================
-Product: OPPO K13 Turbo 5G, Purple Phantom (8GB, 128GB)
-Current Price: 28,890.
-Target Price: ₹25000
-Price is above target price
+- how HTTP requests work
+- how websites structure HTML
+- how web scraping works with BeautifulSoup
+- why scraping real websites is unreliable sometimes
+- how to write cleaner Python using classes
+- how to handle exceptions properly
 
-==================================================
-Product: Lenovo LOQ 13th Gen Intel Core i7-13650HX 15.6" (39.6cm) 144Hz 300Nits FHD Gaming Laptop (16GB/512GB SSD/Win 11/NVIDIA RTX 4050 6GB/1Yr ADP Free/MSO 24/Grey/2.3Kg), 83DV01A5IN
-Current Price: 1,04,990.
-Target Price: ₹110000
-Price is below target price
-
-==================================================
-Product: HP KM300F Wired USB Gaming Keyboard and Mouse Set, Membrane Backlit, 26 Keys Anti-Ghosting, 3 LED Indicators & 3D 6K USB Mouse with 6400DPI,Six-Speed Cyclic Resolution Switching, Black
-Current Price: 1,399.
-Target Price: ₹1500
-Price is below target price
-```
+I also learned that Amazon pages are inconsistent, which is why fallback selectors and error handling are important.
 
 ---
-
-## Price Comparison Logic
-
-The application compares prices using the `compare_price()` method.
-
-Possible results:
-
-- `above`
-- `below`
-- `equal`
-
----
-
-## Error Handling
-
-The application handles edge cases such as:
-
-- Product title not found
-- Product price not found
-- Invalid HTML structure
-- Amazon page structure variations
-
-Fallback selectors are used to improve scraping reliability.
-
----
-
-## Screenshots
-
-Add screenshots inside the `screenshots/` folder showing:
-
-1. Source code
-2. Terminal execution output
-
-Example:
-
-```bash
-screenshots/code.png
-screenshots/output.png
-```
