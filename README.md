@@ -55,6 +55,24 @@ The repository is organized into assignment folders, each containing Python scri
 - **userProfile/**: User profile app with models, serializers, views, and migrations.
 
 
+### Assignment 10: Price Tracking
+- **priceTracker.py**: Script to track prices and notify or log changes over time.
+- **README.md**: Assignment-specific notes and usage instructions.
+- **screenshots/**: Example output screenshots.
+
+### Assignment 11: Computer Vision Experiments
+- **cv_1.py** through **cv_15.py**: Collection of OpenCV / computer-vision scripts and experiments (image processing, feature detection, model demos).
+
+### Assignment 12: Selenium / Web Automation
+- **README.md**: Notes for running the Selenium scripts.
+- **sel_1.py** through **sel_5.py**: Selenium test and automation scripts for browser interaction.
+
+### Assignment 13: Client-Server Networking
+- **client.py**: Client-side networking example.
+- **server.py**: Server-side networking example.
+- **README.md**: Assignment notes and run instructions.
+
+
 ## How to Run
 
 Ensure you have Python 3.x installed. Navigate to the project root directory and run the desired script:
@@ -70,4 +88,4 @@ python Assignment_1/task1.py
 
 ## Status
 
-**Active** - This repository is being updated with new assignments as the course progresses.
+**Close** - This repository is closed.
